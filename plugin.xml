@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <!-- ===================== Commands ===================== -->
+   <extension point="org.eclipse.ui.commands">
+      <category
+            id="com.lumivara.abapadtmcp.category"
+            name="abap-mcp"/>
+      <command
+            categoryId="com.lumivara.abapadtmcp.category"
+            id="com.lumivara.abapadtmcp.commands.lint"
+            name="Lint with abap-mcp"/>
+      <command
+            categoryId="com.lumivara.abapadtmcp.category"
+            id="com.lumivara.abapadtmcp.commands.readiness"
+            name="Cloud Readiness (abap-mcp)"/>
+   </extension>
+
+   <!-- ===================== Handlers ===================== -->
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="com.lumivara.abapadtmcp.handlers.AbapMcpLintHandler"
+            commandId="com.lumivara.abapadtmcp.commands.lint"/>
+      <handler
+            class="com.lumivara.abapadtmcp.handlers.AbapMcpReadinessHandler"
+            commandId="com.lumivara.abapadtmcp.commands.readiness"/>
+   </extension>
+
+   <!--
+      ===================== Menus =====================
+      ADT contributes the ABAP source editor; its editor-context-menu id is
+      "#TextEditorContext" (the standard Eclipse text-editor popup id that the ADT
+      ABAP editor inherits) in the general case. We contribute to that popup so the
+      commands appear when right-clicking inside an ABAP source editor, WITHOUT
+      compiling against any com.sap.adt.* bundle.
+
+      ASSUMPTION (documented): ADT's ABAP editor is an ITextEditor subclass and thus
+      exposes the "#TextEditorContext" popup. If a given ADT release uses a custom
+      popup id, add that id as an extra <menuContribution locationURI=...> here — the
+      handler logic is unchanged. We also add a top-level "abap-mcp" pulldown so the
+      commands are reachable regardless of editor popup wiring.
+   -->
+   <extension point="org.eclipse.ui.menus">
+      <!-- ABAP / text editor context menu -->
+      <menuContribution
+            locationURI="popup:#TextEditorContext?after=additions"
+            allPopups="false">
+         <menu
+               id="com.lumivara.abapadtmcp.menu"
+               label="abap-mcp">
+            <command
+                  commandId="com.lumivara.abapadtmcp.commands.lint"
+                  label="Lint with abap-mcp"
+                  style="push"/>
+            <command
+                  commandId="com.lumivara.abapadtmcp.commands.readiness"
+                  label="Cloud Readiness"
+                  style="push"/>
+         </menu>
+      </menuContribution>
+
+      <!-- Always-available top-level menu (fallback / discoverability) -->
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.lumivara.abapadtmcp.mainmenu"
+               label="abap-mcp">
+            <command
+                  commandId="com.lumivara.abapadtmcp.commands.lint"
+                  label="Lint with abap-mcp"
+                  style="push"/>
+            <command
+                  commandId="com.lumivara.abapadtmcp.commands.readiness"
+                  label="Cloud Readiness"
+                  style="push"/>
+         </menu>
+      </menuContribution>
+   </extension>
+
+   <!-- ===================== Problem markers ===================== -->
+   <extension
+         id="abapMcpProblem"
+         name="abap-mcp Problem"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <persistent value="true"/>
+   </extension>
+
+</plugin>

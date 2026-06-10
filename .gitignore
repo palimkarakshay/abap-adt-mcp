@@ -1,0 +1,9 @@
+# Eclipse / PDE
+/bin/
+/target/
+.settings/
+.project
+.classpath
+# bare-JRE verify output
+/out/
+*.class

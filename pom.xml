@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!--
+    Tycho POM for the abap-adt-mcp Eclipse plugin (single-module, "POM-less"
+    style: the artifact metadata comes from META-INF/MANIFEST.MF, so this file
+    only configures the build).
+
+    Build headlessly:   mvn -B clean verify
+    Requires:           Maven 3.9+, JDK 17, network access to the Eclipse p2 repo
+                        declared below (or a local mirror).
+
+    Eclipse + ADT note: this POM resolves the *Eclipse Platform* bundles needed by
+    the handlers (org.eclipse.ui, core.runtime, jface.text, …). It does NOT resolve
+    com.sap.adt.* — those are not published on a public, Tycho-consumable p2 repo
+    and are not compiled against (see plugin.xml / AbapMcpHandlerSupport for why the
+    plugin is decoupled from ADT internals). To build a variant that *does* link ADT
+    API, add SAP's ADT update site as another <repository> in target-platform and add
+    the bundles to MANIFEST.MF Require-Bundle.
+  -->
+
+  <groupId>com.lumivara</groupId>
+  <artifactId>abap-adt-mcp</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>eclipse-plugin</packaging>
+
+  <properties>
+    <tycho.version>4.0.8</tycho.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Pin to a recent Eclipse simultaneous release; override with -Declipse.release=... -->
+    <eclipse.release>2024-09</eclipse.release>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>eclipse-platform</id>
+      <layout>p2</layout>
+      <url>https://download.eclipse.org/releases/${eclipse.release}/</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho.version}</version>
+        <configuration>
+          <executionEnvironment>JavaSE-17</executionEnvironment>
+          <environments>
+            <environment>
+              <os>linux</os><ws>gtk</ws><arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>win32</os><ws>win32</ws><arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os><ws>cocoa</ws><arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
