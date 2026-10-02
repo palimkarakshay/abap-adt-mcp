@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.client;
+package io.github.palimkarakshay.abapadtmcp.client;
 
 /**
  * Standalone, Eclipse-free end-to-end proof of the Java &harr; abap-mcp bridge.
@@ -11,9 +11,9 @@ package com.lumivara.abapadtmcp.client;
  *
  * <p>Usage:
  * <pre>
- *   javac -d out src/com/lumivara/abapadtmcp/client/*.java \
- *                test/com/lumivara/abapadtmcp/client/BridgeSmokeTest.java
- *   java  -cp out com.lumivara.abapadtmcp.client.BridgeSmokeTest \
+ *   javac -d out src/io/github/palimkarakshay/abapadtmcp/client/*.java \
+ *                test/io/github/palimkarakshay/abapadtmcp/client/BridgeSmokeTest.java
+ *   java  -cp out io.github.palimkarakshay.abapadtmcp.client.BridgeSmokeTest \
  *                 /home/akshay/projects/abap-mcp/dist/cli.js
  * </pre>
  * The single arg is the path to abap-mcp's {@code dist/cli.js}. Optional 2nd arg = node path.

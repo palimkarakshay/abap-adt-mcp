@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.client;
+package io.github.palimkarakshay.abapadtmcp.client;
 
 import java.util.Collections;
 import java.util.List;

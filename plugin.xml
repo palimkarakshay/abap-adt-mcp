@@ -5,26 +5,26 @@
    <!-- ===================== Commands ===================== -->
    <extension point="org.eclipse.ui.commands">
       <category
-            id="com.lumivara.abapadtmcp.category"
+            id="io.github.palimkarakshay.abapadtmcp.category"
             name="abap-mcp"/>
       <command
-            categoryId="com.lumivara.abapadtmcp.category"
-            id="com.lumivara.abapadtmcp.commands.lint"
+            categoryId="io.github.palimkarakshay.abapadtmcp.category"
+            id="io.github.palimkarakshay.abapadtmcp.commands.lint"
             name="Lint with abap-mcp"/>
       <command
-            categoryId="com.lumivara.abapadtmcp.category"
-            id="com.lumivara.abapadtmcp.commands.readiness"
+            categoryId="io.github.palimkarakshay.abapadtmcp.category"
+            id="io.github.palimkarakshay.abapadtmcp.commands.readiness"
             name="Cloud Readiness (abap-mcp)"/>
    </extension>
 
    <!-- ===================== Handlers ===================== -->
    <extension point="org.eclipse.ui.handlers">
       <handler
-            class="com.lumivara.abapadtmcp.handlers.AbapMcpLintHandler"
-            commandId="com.lumivara.abapadtmcp.commands.lint"/>
+            class="io.github.palimkarakshay.abapadtmcp.handlers.AbapMcpLintHandler"
+            commandId="io.github.palimkarakshay.abapadtmcp.commands.lint"/>
       <handler
-            class="com.lumivara.abapadtmcp.handlers.AbapMcpReadinessHandler"
-            commandId="com.lumivara.abapadtmcp.commands.readiness"/>
+            class="io.github.palimkarakshay.abapadtmcp.handlers.AbapMcpReadinessHandler"
+            commandId="io.github.palimkarakshay.abapadtmcp.commands.readiness"/>
    </extension>
 
    <!--
@@ -47,14 +47,14 @@
             locationURI="popup:#TextEditorContext?after=additions"
             allPopups="false">
          <menu
-               id="com.lumivara.abapadtmcp.menu"
+               id="io.github.palimkarakshay.abapadtmcp.menu"
                label="abap-mcp">
             <command
-                  commandId="com.lumivara.abapadtmcp.commands.lint"
+                  commandId="io.github.palimkarakshay.abapadtmcp.commands.lint"
                   label="Lint with abap-mcp"
                   style="push"/>
             <command
-                  commandId="com.lumivara.abapadtmcp.commands.readiness"
+                  commandId="io.github.palimkarakshay.abapadtmcp.commands.readiness"
                   label="Cloud Readiness"
                   style="push"/>
          </menu>
@@ -64,14 +64,14 @@
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               id="com.lumivara.abapadtmcp.mainmenu"
+               id="io.github.palimkarakshay.abapadtmcp.mainmenu"
                label="abap-mcp">
             <command
-                  commandId="com.lumivara.abapadtmcp.commands.lint"
+                  commandId="io.github.palimkarakshay.abapadtmcp.commands.lint"
                   label="Lint with abap-mcp"
                   style="push"/>
             <command
-                  commandId="com.lumivara.abapadtmcp.commands.readiness"
+                  commandId="io.github.palimkarakshay.abapadtmcp.commands.readiness"
                   label="Cloud Readiness"
                   style="push"/>
          </menu>

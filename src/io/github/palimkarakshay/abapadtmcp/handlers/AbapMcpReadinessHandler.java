@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.handlers;
+package io.github.palimkarakshay.abapadtmcp.handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

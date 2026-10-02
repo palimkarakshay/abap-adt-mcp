@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.client;
+package io.github.palimkarakshay.abapadtmcp.client;
 
 /**
  * One lint finding returned by abap-mcp's CLI ({@code lint --json}).

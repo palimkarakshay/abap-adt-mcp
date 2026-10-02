@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.handlers;
+package io.github.palimkarakshay.abapadtmcp.handlers;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.resources.IFile;
@@ -11,8 +11,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.texteditor.ITextEditor;
 
-import com.lumivara.abapadtmcp.Activator;
-import com.lumivara.abapadtmcp.client.AbapMcpClient;
+import io.github.palimkarakshay.abapadtmcp.Activator;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpClient;
 
 /**
  * Shared plumbing for the abap-mcp handlers: pull the active editor's source text and
