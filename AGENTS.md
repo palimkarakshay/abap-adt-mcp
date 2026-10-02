@@ -3,15 +3,15 @@
 Eclipse **ADT (ABAP Development Tools) plugin** bridging the ADT editor to
 [`abap-mcp`](https://github.com/palimkarakshay/abap-mcp) — right-click an ABAP source →
 "Lint with abap-mcp" / "Cloud Readiness" → findings as Eclipse problem markers. Offline,
-no SAP system. Lumivara product line: **SAP**. **Public MIT** (personal GitHub
+no SAP system. **Public MIT** (personal GitHub
 `palimkarakshay`, per OSS rule). Status: foundation (bridge verified; Eclipse wiring scaffolded).
 
 ## Toolchain: Eclipse PDE + Tycho (Maven), JDK 17 — OSGi bundle, not npm
 
 ## Commands (authoritative)
 - Bare-JRE bridge verify (the load-bearing test, no Eclipse needed):
-  `javac -d out src/com/lumivara/abapadtmcp/client/*.java test/com/lumivara/abapadtmcp/client/BridgeSmokeTest.java`
-  then `java -cp out com.lumivara.abapadtmcp.client.BridgeSmokeTest /home/akshay/projects/abap-mcp/dist/cli.js`
+  `javac -d out src/io/github/palimkarakshay/abapadtmcp/client/*.java test/io/github/palimkarakshay/abapadtmcp/client/BridgeSmokeTest.java`
+  then `java -cp out io.github.palimkarakshay.abapadtmcp.client.BridgeSmokeTest /home/akshay/projects/abap-mcp/dist/cli.js`
 - Headless plugin build: `mvn -B clean verify` (needs Maven 3.9+, JDK 17, network to the
   p2 repo in `pom.xml`; Maven is NOT installed on codebox by default).
 - Interactive: import into Eclipse, set `abap-adt-mcp.target` active, *Run As → Eclipse Application*.
@@ -37,4 +37,4 @@ no SAP system. Lumivara product line: **SAP**. **Public MIT** (personal GitHub
 - abap-mcp skips files not named abapGit-style — the client always writes `*.clas.abap`/`*.prog.abap`.
 - abap-mcp CLI exit codes: 0 ok · 1 findings · 2 usage error (parser treats 2 specially).
 - Requires abap-mcp built (`npm run build` in its repo) so `dist/cli.js` exists; path is a preference.
-- Marker type id `com.lumivara.abapadtmcp.abapMcpProblem` is shared between plugin.xml and `AbapMcpMarkers`.
+- Marker type id `io.github.palimkarakshay.abapadtmcp.abapMcpProblem` is shared between plugin.xml and `AbapMcpMarkers`.

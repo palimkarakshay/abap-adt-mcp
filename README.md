@@ -30,7 +30,7 @@ network required.
 ```
 
 **Design principle:** everything that does real work — process plumbing, JSON
-parsing, mapping to findings — lives in `com.lumivara.abapadtmcp.client`, which has
+parsing, mapping to findings — lives in `io.github.palimkarakshay.abapadtmcp.client`, which has
 **zero Eclipse imports**. That package is exported and unit-testable on a plain JRE
 (`BridgeSmokeTest`). The Eclipse handlers/markers are replaceable plumbing on top.
 
@@ -78,10 +78,10 @@ JSON — is provable on a bare JRE:
 
 ```bash
 # from the project root
-javac -d out src/com/lumivara/abapadtmcp/client/*.java \
-             test/com/lumivara/abapadtmcp/client/BridgeSmokeTest.java
+javac -d out src/io/github/palimkarakshay/abapadtmcp/client/*.java \
+             test/io/github/palimkarakshay/abapadtmcp/client/BridgeSmokeTest.java
 
-java -cp out com.lumivara.abapadtmcp.client.BridgeSmokeTest \
+java -cp out io.github.palimkarakshay.abapadtmcp.client.BridgeSmokeTest \
      /home/akshay/projects/abap-mcp/dist/cli.js
 ```
 

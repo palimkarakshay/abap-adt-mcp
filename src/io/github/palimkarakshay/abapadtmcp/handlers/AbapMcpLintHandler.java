@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.handlers;
+package io.github.palimkarakshay.abapadtmcp.handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -7,11 +7,11 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import com.lumivara.abapadtmcp.client.AbapMcpClient;
-import com.lumivara.abapadtmcp.client.AbapMcpException;
-import com.lumivara.abapadtmcp.client.AbapMcpFinding;
-import com.lumivara.abapadtmcp.client.AbapMcpResult;
-import com.lumivara.abapadtmcp.markers.AbapMcpMarkers;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpClient;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpException;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpFinding;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpResult;
+import io.github.palimkarakshay.abapadtmcp.markers.AbapMcpMarkers;
 
 /**
  * "Lint with abap-mcp" command handler. Wires the active ABAP editor to the

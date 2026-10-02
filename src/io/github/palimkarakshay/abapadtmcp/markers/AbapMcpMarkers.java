@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.markers;
+package io.github.palimkarakshay.abapadtmcp.markers;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
-import com.lumivara.abapadtmcp.client.AbapMcpFinding;
+import io.github.palimkarakshay.abapadtmcp.client.AbapMcpFinding;
 
 /**
  * Maps {@link AbapMcpFinding}s onto Eclipse problem markers so they surface in the
@@ -21,7 +21,7 @@ import com.lumivara.abapadtmcp.client.AbapMcpFinding;
 public final class AbapMcpMarkers {
 
     /** Must match the {@code id} of the marker {@code extension} in plugin.xml. */
-    public static final String MARKER_TYPE = "com.lumivara.abapadtmcp.abapMcpProblem";
+    public static final String MARKER_TYPE = "io.github.palimkarakshay.abapadtmcp.abapMcpProblem";
 
     private AbapMcpMarkers() { }
 

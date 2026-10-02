@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp;
+package io.github.palimkarakshay.abapadtmcp;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -12,7 +12,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
     /** Must match Bundle-SymbolicName in MANIFEST.MF. */
-    public static final String PLUGIN_ID = "com.lumivara.abapadtmcp";
+    public static final String PLUGIN_ID = "io.github.palimkarakshay.abapadtmcp";
 
     // Preference keys (see roadmap: a real preference page is the next step).
     public static final String PREF_NODE_PATH = "abapMcp.nodePath";

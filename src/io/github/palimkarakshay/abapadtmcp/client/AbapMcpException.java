@@ -1,4 +1,4 @@
-package com.lumivara.abapadtmcp.client;
+package io.github.palimkarakshay.abapadtmcp.client;
 
 /**
  * Raised when the abap-mcp bridge cannot produce a usable result: process
